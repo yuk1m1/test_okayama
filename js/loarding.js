@@ -31,10 +31,10 @@ var bar = new ProgressBar.Line(splash_text, {//id名を指定
 
   //---------------上から下　画面遷移----------------------//
   $(window).on('load',function(){
-    $("#splash-logo").delay(1200).fadeOut('slow');//ロゴを1.2秒でフェードアウトする記述
+    $("#splash-logo").delay(600).fadeOut('slow');//ロゴを1.2秒でフェードアウトする記述
     
     //=====ここからローディングエリア（splashエリア）を1.5秒でフェードアウトした後に動かしたいJSをまとめる
-    $("#splash").delay(1500).fadeOut('slow',function(){//ローディングエリア（splashエリア）を1.5秒でフェードアウトする記述
+    $("#splash").delay(800).fadeOut('slow',function(){//ローディングエリア（splashエリア）を1.5秒でフェードアウトする記述
     
     $('body').addClass('appear');//フェードアウト後bodyにappearクラス付与
     
@@ -47,4 +47,27 @@ var bar = new ProgressBar.Line(splash_text, {//id名を指定
     });
     //=====ここまで背景が伸びた後に動かしたいJSをまとめる
     
+    });
+
+    /*--グローバルメニュー--*/
+
+    //スクロールすると上部に固定させるための設定を関数でまとめる
+    function FixedAnime() {
+	    var headerH = $('#header').outerHeight(true);
+	    var scroll = $(window).scrollTop();
+	    if (scroll >= headerH){//headerの高さ以上になったら
+			$('#header').addClass('fixed');//fixedというクラス名を付与
+		}else{//それ以外は
+			$('#header').removeClass('fixed');//fixedというクラス名を除去
+		}
+    }   
+
+    // 画面をスクロールをしたら動かしたい場合の記述
+    $(window).scroll(function () {
+	    FixedAnime();/* スクロール途中からヘッダーを出現させる関数を呼ぶ*/
+    });
+
+    // ページが読み込まれたらすぐに動かしたい場合の記述
+    $(window).on('load', function () {
+	    FixedAnime();/* スクロール途中からヘッダーを出現させる関数を呼ぶ*/
     });
