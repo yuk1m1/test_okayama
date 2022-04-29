@@ -28,3 +28,23 @@ var bar = new ProgressBar.Line(splash_text, {//id名を指定
   bar.animate(1.0, function () {//バーを描画する割合を指定します 1.0 なら100%まで描画します
     $("#splash").delay(500).fadeOut(800);//アニメーションが終わったら#splashエリアをフェードアウト
   });  
+
+  //---------------上から下　画面遷移----------------------//
+  $(window).on('load',function(){
+    $("#splash-logo").delay(1200).fadeOut('slow');//ロゴを1.2秒でフェードアウトする記述
+    
+    //=====ここからローディングエリア（splashエリア）を1.5秒でフェードアウトした後に動かしたいJSをまとめる
+    $("#splash").delay(1500).fadeOut('slow',function(){//ローディングエリア（splashエリア）を1.5秒でフェードアウトする記述
+    
+    $('body').addClass('appear');//フェードアウト後bodyにappearクラス付与
+    
+    });
+    //=====ここまでローディングエリア（splashエリア）を1.5秒でフェードアウトした後に動かしたいJSをまとめる
+    
+    //=====ここから背景が伸びた後に動かしたいJSをまとめたい場合は
+    $('.splashbg').on('animationend', function() { 
+    //この中に動かしたいJSを記載
+    });
+    //=====ここまで背景が伸びた後に動かしたいJSをまとめる
+    
+    });
