@@ -62,16 +62,15 @@ h1{
     margin-top:20px;  
   }
   
-  small{
-    /*color:#fff;
-    display: block;
-    text-align: center;*/
-    background:#333;
+  /*small{
     color:#fff;
     display: block;
     text-align: center;
+    background:#333;
     padding:20px;
-  }
+    position: absolute;
+    bottom:0;
+  }*/
   
   #header{
     width: 100%;
@@ -79,12 +78,12 @@ h1{
     position:fixed;
     top:0;
     display: flex;
-	justify-content: space-between;
-	align-items: center;
-	background:#333;
-	color:#fff;
-	text-align: center;
-	padding: 20px;
+  	justify-content: space-between;
+  	align-items: center;
+  	background:#333;
+  	color:#fff;
+  	text-align: center;
+  	padding: 20px;
   }
 
   #header.fixed{
@@ -95,6 +94,8 @@ h1{
   }
   
   section{
+    margin:0 auto;
+    width:80%;
     padding:100px 30px;
   }
   
@@ -102,11 +103,33 @@ h1{
     background:#f3f3f3; 
   }
   
-  #footer{
+ /* #footer{
     background:rgb(15, 15, 15);
+    width: 100%;
     padding:20px;
     position: absolute;
     bottom:0;
+  }
+
+  footer{
+    padding:50px 0;
+  }*/
+
+  #area-1{
+    position: relative;
+    top:0;
+  }
+  #area-2{
+    position: absolute;
+    top:1200px;
+  }
+  #area-3{
+    position: absolute;
+    top:2400px;
+  }
+  main{
+    
+    padding-top:100px ;
   }
 
 /*========= 画面遷移のためのCSS ===============*/
@@ -194,11 +217,14 @@ nav ul li.current a,
     nav ul li a:hover{
      color:#fff; 
  }       
-    
-section{
-    padding:300px;
- }
 
-section:nth-child(2n){
-        background:#f3f3f3; 
+ @media screen and (max-width:768px) {
+    nav ul li a:hover{
+    color: #666;
+  }
+
+  nav ul li.current a {
+    color:#fff;
+    }
 }
+    
