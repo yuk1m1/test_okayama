@@ -29,7 +29,7 @@ var bar = new ProgressBar.Line(splash_text, {//id名を指定
     $("#splash").delay(500).fadeOut(800);//アニメーションが終わったら#splashエリアをフェードアウト
   });  
 
-  
+ //==斜めのエントリー==// 
   $(window).on('load',function(){
     $("#splash-logo").delay(1200).fadeOut('slow');//ロゴを1.2秒でフェードアウトする記述
     
@@ -47,4 +47,18 @@ var bar = new ProgressBar.Line(splash_text, {//id名を指定
     });
     //=====ここまで背景が伸びた後に動かしたいJSをまとめる
     
+  });
+
+  //==ナビゲーションメニュー==//
+
+  $(".openbtn").click(function () {//ボタンがクリックされたら
+    $(this).toggleClass('active');//ボタン自身に activeクラスを付与し
+      $("#g-nav").toggleClass('panelactive');//ナビゲーションにpanelactiveクラスを付与
+      $(".circle-bg").toggleClass('circleactive');//丸背景にcircleactiveクラスを付与
+  });
+  
+  $("#g-nav a").click(function () {//ナビゲーションのリンクがクリックされたら
+      $(".openbtn").removeClass('active');//ボタンの activeクラスを除去し
+      $("#g-nav").removeClass('panelactive');//ナビゲーションのpanelactiveクラスを除去
+      $(".circle-bg").removeClass('circleactive');//丸背景のcircleactiveクラスを除去
   });
